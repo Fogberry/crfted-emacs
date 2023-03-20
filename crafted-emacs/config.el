@@ -78,9 +78,10 @@
 (require 'init-lsp)
 (require 'init-flycheck)
 
-;; file
+;; project
 (require 'init-dirvish)
 (require 'init-git)
+(require 'init-project)
 
 ;; ui
 (require 'init-modeline)
