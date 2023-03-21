@@ -52,10 +52,11 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
 
-;; Format HTML, CSS and JavaScript/JSON
-(use-package prettier
-  :ensure t
-  :hook ((js-mode js2-mode css-mode rjsx-mode web-mode) . prettier-mode)
-  :init (setq prettier-pre-warm 'none))
+;; ;; Format HTML, CSS and JavaScript/JSON
+;; (use-package prettier
+;;   :ensure t
+;;   :hook ((js-mode js2-mode css-mode rjsx-mode web-mode) . prettier-mode)
+;;   :init (setq prettier-pre-warm 'none))
+;;
 
 (provide 'init-web)
