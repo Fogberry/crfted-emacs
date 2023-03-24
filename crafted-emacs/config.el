@@ -24,11 +24,11 @@
 (require 'crafted-ui)          ; Better UI experience (modeline etc.)
 (require 'crafted-windows)     ; Window management configuration
 (require 'crafted-editing)     ; Whitspace trimming, auto parens etc.
-;(require 'crafted-evil)        ; An `evil-mode` configuration
-;(require 'crafted-org)         ; org-appear, clickable hyperlinks etc.
-;(require 'crafted-project)     ; built-in alternative to projectile
+                                        ;(require 'crafted-evil)        ; An `evil-mode` configuration
+                                        ;(require 'crafted-org)         ; org-appear, clickable hyperlinks etc.
+                                        ;(require 'crafted-project)     ; built-in alternative to projectile
 (require 'crafted-speedbar)    ; built-in file-tree
-;(require 'crafted-screencast)  ; show current command and binding in modeline
+                                        ;(require 'crafted-screencast)  ; show current command and binding in modeline
 (require 'crafted-compile)     ; automatically compile some emacs lisp files
 
 ;; Set the default face. The default face is the basis for most other
@@ -66,6 +66,7 @@
   "Org directory"
   :type '(string))
 
+(require 'init-base)
 ;; lang
 (require 'init-web)
 (require 'init-org)
@@ -88,7 +89,4 @@
 ;; ui
 (require 'init-modeline)
 
-(use-package wakatime-mode
-  :ensure t
-  :init (global-wakatime-mode))
 ;;;
