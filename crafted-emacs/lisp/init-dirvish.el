@@ -24,13 +24,10 @@
         '(:left (sort symlink) :right (omit yank index)))
   (setq dirvish-attributes
         '(all-the-icons file-size subtree-state vc-state git-msg))
-     ;;   '(all-the-icons file-time file-size subtree-state vc-state git-msg))
+  ;;   '(all-the-icons file-time file-size subtree-state vc-state git-msg))
   (setq delete-by-moving-to-trash t)
   (setq dired-listing-switches
         "-l --almost-all --human-readable --group-directories-first --no-group")
-  (setq dired-mouse-drag-files t) ;support mouse
-  (setq mouse-drag-and-drop-region-cross-program t)
-  (setq mouse-1-click-follows-link nil)
   (define-key dirvish-mode-map (kbd "<mouse-1>") 'dirvish-subtree-toggle-or-open)
   (define-key dirvish-mode-map (kbd "<mouse-2>") 'dired-mouse-find-file-other-window)
   (define-key dirvish-mode-map (kbd "<mouse-3>") 'dired-mouse-find-file)

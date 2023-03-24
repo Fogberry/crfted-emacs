@@ -41,10 +41,11 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "Iosevka Fixed Medium 20"))))
+             `(default ((t (:font "MonoLisa Nasy-20"))))
              `(fixed-pitch ((t (:inherit (default)))))
-             `(fixed-pitch-serif ((t (:inherit (default)))))
-             `(variable-pitch ((t (:font "Iosevka Fixed Medium 18")))))))
+             `(fixed-pitch-serif ((t font-spec :family "CMU Typewriter Text" :size 22 )))
+            `(variable-pitch ((t font-spec :family "CMU Typewriter Text" :size 22 )))
+            )))
 
 ;; Themes are color customization packages which coordinate the
 ;; various colors, and in some cases, font-sizes for various aspects
@@ -55,12 +56,13 @@
 (crafted-package-install-package 'doom-themes)
 (progn
   (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
-  (load-theme 'doom-palenight t))       ; load the doom-palenight theme
+  (load-theme 'doom-solarized-light t))       ; load the doom-palenight theme
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 ;; (setq crafted-load-custom-file nil)
 
 (add-to-list 'load-path "~/crafted-emacs/crafted-emacs/lisp/")
+
 
 (defcustom my-org-directory (expand-file-name "~/Org/")
   "Org directory"
