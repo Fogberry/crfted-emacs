@@ -1,5 +1,6 @@
 (use-package lsp-mode
   :ensure t
+  :pin melpa
   :custom
   (lsp-completion-provider :none)
   :init

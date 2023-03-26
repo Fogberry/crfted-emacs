@@ -41,11 +41,12 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "MonoLisa Nasy-20"))))
+             `(default ((t (:font "MonoLisa Nasy-18"))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t font-spec :family "CMU Typewriter Text" :size 22 )))
-            `(variable-pitch ((t font-spec :family "CMU Typewriter Text" :size 22 )))
-            )))
+             `(variable-pitch ((t font-spec :family "CMU Typewriter Text" :size 22 )))
+             )))
+
 
 ;; Themes are color customization packages which coordinate the
 ;; various colors, and in some cases, font-sizes for various aspects
@@ -73,11 +74,13 @@
 (require 'init-web)
 (require 'init-org)
 (require 'init-python)
+(require 'init-clojure)
 
 ;; editor
 (require 'init-meow)
 (require 'init-rime)
 (require 'init-format)
+(require 'init-tools)
 
 ;; IDE
 (require 'init-lsp)

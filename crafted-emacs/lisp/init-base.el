@@ -11,6 +11,7 @@
       dired-mouse-drag-files t ;;emacs29 supports
       mouse-drag-and-drop-region-cross-program t
       mouse-1-click-follows-link nil
+      make-backup-files nil
       )
 
 ;; (display-time-mode 1)
