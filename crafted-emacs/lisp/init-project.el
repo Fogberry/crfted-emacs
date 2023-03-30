@@ -1,7 +1,7 @@
 (use-package projectile
   :ensure t
   :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map))
+              ("C-c C-p" . projectile-command-map))
   :hook (after-init . projectile-mode)
   :init
   (setq projectile-mode-line-prefix ""

@@ -92,6 +92,7 @@
 (require 'init-project)
 
 ;; ui
-(require 'init-modeline)
+(require 'init-ui)
+(require 'init-highlight)
 
 ;;;
