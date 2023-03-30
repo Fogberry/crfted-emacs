@@ -14,7 +14,11 @@
       make-backup-files nil
       )
 
-;; (display-time-mode 1)
+(use-package display-line-numbers
+  :ensure nil
+  :hook ((prog-mode yaml-mode conf-mode) . display-line-numbers-mode)
+  :init (setq display-line-numbers-width-start t))
+
 
 (scroll-bar-mode)
 
