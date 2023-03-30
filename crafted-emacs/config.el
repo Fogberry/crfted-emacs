@@ -66,7 +66,7 @@
 
 
 (defcustom my-org-directory (expand-file-name "~/Org/")
-  "Org directory"
+"Org file"
   :type '(string))
 
 (require 'init-base)
