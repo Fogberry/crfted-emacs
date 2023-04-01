@@ -3,7 +3,7 @@
   :bind (("C-c a" . org-agenda)
          ("C-c x" . org-capture))
   :config
-   (setq org-modules nil                 ; Faster loading
+  (setq org-modules nil                 ; Faster loading
         org-directory my-org-directory
         org-capture-templates
         `(("a" "Appointment" entry (file+headline ,(concat org-directory "/task.org") "Appointment")
@@ -29,7 +29,7 @@
         org-agenda-files (list my-org-directory)
         org-agenda-block-separator ?─
         org-agenda-time-grid
-          '((daily today require-timed)
+        '((daily today require-timed)
           (800 1000 1200 1400 1600 1800 2000)
           " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
         org-agenda-current-time-string
@@ -68,7 +68,7 @@
                     '("🅐" "🅑" "🅒" "🅓")
                   '("HIGH" "MEDIUM" "LOW" "OPTIONAL"))))
 
-    ;; Babel
+  ;; Babel
   (setq org-confirm-babel-evaluate nil
         org-src-fontify-natively t
         org-src-tab-acts-natively t)
@@ -95,14 +95,14 @@
   ;; Rich text clipboard
   (use-package org-rich-yank
     :bind (:map org-mode-map
-           ("C-M-y" . org-rich-yank)))
+                ("C-M-y" . org-rich-yank)))
 
   ;; Export text/html MIME emails
   (use-package org-mime
     :bind (:map message-mode-map
-           ("C-c M-o" . org-mime-htmlize)
-           :map org-mode-map
-           ("C-c M-o" . org-mime-org-buffer-htmlize)))
+                ("C-c M-o" . org-mime-htmlize)
+                :map org-mode-map
+                ("C-c M-o" . org-mime-org-buffer-htmlize)))
 
   ;; Add graphical view of agenda
   (use-package org-timeline
@@ -115,12 +115,15 @@
     (org-pomodoro-mode-line-overtime ((t (:inherit error))))
     (org-pomodoro-mode-line-break ((t (:inherit success))))
     :bind (:map org-mode-map
-           ("C-c C-x m" . org-pomodoro))
+                ("C-c C-x m" . org-pomodoro))
     :init
     (with-eval-after-load 'org-agenda
       (bind-keys :map org-agenda-mode-map
-        ("K" . org-pomodoro)
-        ("C-c C-x m" . org-pomodoro)))))
+                 ("K" . org-pomodoro)
+                 ("C-c C-x m" . org-pomodoro)))))
+
+(use-package valign
+  :hook (org-mode . valign-mode))
 
 ;; Roam
 (use-package org-roam
@@ -138,16 +141,17 @@
          ("C-c n t" . org-roam-tag-add)
          ("C-c n y" . org-roam-dailies-capture-yesterday))
   :init
-  (setq org-roam-directory (file-truename my-org-directory))
   (setq org-roam-node-display-template (concat "${type:15} ${title:*} " (propertize "${tags:25}" 'face 'org-tag)))
   :custom
   (org-roam-database-connector 'sqlite-builtin)
+  (org-roam-directory (file-truename my-org-directory))
+
   :config
   (setq
    org-roam-dailies-capture-templates
-        '(("d" "default" entry "** %?" :if-new
-           (file+head+olp "%<%G-W%V>.org" "#+title: %<%G-W%V>\n"
-                          ("%<%A %Y-%m-%d>")))))
+   '(("d" "default" entry "** %?" :if-new
+      (file+head+olp "%<%G-W%V>.org" "#+title: %<%G-W%V>\n"
+                     ("%<%A %Y-%m-%d>")))))
   (setq org-roam-capture-templates
         '(("m" "main" plain
            "%?"

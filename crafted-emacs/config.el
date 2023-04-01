@@ -66,7 +66,7 @@
 
 
 (defcustom my-org-directory (expand-file-name "~/Org/")
-"Org file"
+  "Org file"
   :type '(string))
 
 (require 'init-base)
@@ -83,6 +83,7 @@
 (require 'init-tools)
 
 ;; IDE
+(require 'init-completion)
 (require 'init-lsp)
 (require 'init-flycheck)
 
