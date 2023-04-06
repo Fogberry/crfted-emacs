@@ -37,7 +37,7 @@
 
         org-tags-column -80
         org-log-done 'time
-        org-catch-invisible-edits 'smart
+        org-fold-catch-invisible-edits 'smart
         org-startup-indented t
         org-ellipsis (if (char-displayable-p ?⏷) "\t⏷" nil)
         org-pretty-entities nil
@@ -86,9 +86,6 @@
       (plantuml   . t))
     "Alist of org ob languages.")
 
-  ;; ob-sh renamed to ob-shell since 26.1.
-  (cl-pushnew '(shell . t) load-language-alist)
-
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-alist)
 
@@ -126,7 +123,11 @@
   :hook (org-mode . valign-mode))
 
 ;; Roam
+;; (use-package epkg
+;;   :defer t
+;;   :custom (epkg-database-connector 'sqlite-builtin))
 (use-package org-roam
+  :ensure t
   :diminish
   :bind (
          ("C-c n a" . org-roam-alias-add)
@@ -140,12 +141,8 @@
          ("C-c n r" . org-roam-tag-remove)
          ("C-c n t" . org-roam-tag-add)
          ("C-c n y" . org-roam-dailies-capture-yesterday))
-  :init
-  (setq org-roam-node-display-template (concat "${type:15} ${title:*} " (propertize "${tags:25}" 'face 'org-tag)))
   :custom
-  (org-roam-database-connector 'sqlite-builtin)
   (org-roam-directory (file-truename my-org-directory))
-
   :config
   (setq
    org-roam-dailies-capture-templates
@@ -153,28 +150,16 @@
       (file+head+olp "%<%G-W%V>.org" "#+title: %<%G-W%V>\n"
                      ("%<%A %Y-%m-%d>")))))
   (setq org-roam-capture-templates
-        '(("m" "main" plain
-           "%?"
-           :if-new (file+head "main/%<%Y%m>-${slug}.org"
+        '(("d" "default" plain "%?"
+           :target (file+head "main/%<%Y%m>-${slug}.org"
                               "#+title: ${title}\n")
-           :immediate-finish t
-           :unnarrowed t)
-          ("r" "reference" plain "%?"
-           :if-new
-           (file+head "reference/%<%Y%m>-${title}.org"
-                      "#+title: ${title}\n")
-           :immediate-finish t
-           :unnarrowed t)
-          ("a" "article" plain "%?"
-           :if-new
-           (file+head "articles/%<%Y%m>-${title}.org"
-                      "#+title: ${title}\n#+filetags: :article:\n")
-           :immediate-finish t
            :unnarrowed t)))
   (org-roam-db-autosync-mode))
 
 
+
 (use-package org-roam-ui
+  :ensure t
   :bind ("C-c n u" . org-roam-ui-mode))
 
 (provide 'init-org)

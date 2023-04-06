@@ -64,6 +64,14 @@
 
 (add-to-list 'load-path "~/crafted-emacs/crafted-emacs/lisp/")
 
+(quelpa
+ '(quelpa-use-package
+   :fetcher git
+   :url "https://github.com/quelpa/quelpa-use-package.git"))
+(require 'quelpa-use-package)
+
+(use-package emacsql
+  :quelpa (emacsql :fetcher github :repo "magit/emacsql"))
 
 (defcustom my-org-directory (expand-file-name "~/Org/")
   "Org file"
