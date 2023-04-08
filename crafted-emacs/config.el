@@ -101,5 +101,6 @@
 ;; ui
 (require 'init-ui)
 (require 'init-highlight)
+(require 'init-window)
 
 ;;;
