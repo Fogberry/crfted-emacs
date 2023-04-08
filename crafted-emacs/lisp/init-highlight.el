@@ -13,6 +13,29 @@
   :ensure t
   :hook ((prog-mode text-mode) . goggles-mode))
 
+;; Highlight TODO and similar keywords in comments and strings
+(use-package hl-todo
+  :ensure t
+  :custom-face
+  (hl-todo ((t (:inherit default :height 0.9 :width condensed :weight bold :underline nil :inverse-video t))))
+  :bind (:map hl-todo-mode-map
+              ([C-f3]    . hl-todo-occur)
+              ("C-c T p" . hl-todo-previous)
+              ("C-c T n" . hl-todo-next)
+              ("C-c T o" . hl-todo-occur)
+              ("C-c T i" . hl-todo-insert))
+  :hook (after-init . global-hl-todo-mode)
+  :init (setq hl-todo-require-punctuation t
+              hl-todo-highlight-punctuation ":")
+  :config
+  (dolist (keyword '("BUG" "DEFECT" "ISSUE"))
+    (add-to-list 'hl-todo-keyword-faces `(,keyword . "#e45649")))
+  (dolist (keyword '("TRICK" "WORKAROUND"))
+    (add-to-list 'hl-todo-keyword-faces `(,keyword . "#d0bf8f")))
+  (dolist (keyword '("DEBUG" "STUB"))
+    (add-to-list 'hl-todo-keyword-faces `(,keyword . "#7cb8bb"))))
+
+
 ;; Highlight symbols
 (use-package symbol-overlay
   :ensure t
