@@ -128,7 +128,6 @@
 ;;   :custom (epkg-database-connector 'sqlite-builtin))
 (use-package org-roam
   :ensure t
-  :diminish
   :bind (
          ("C-c n a" . org-roam-alias-add)
          ("C-c n c" . org-roam-capture)
@@ -142,7 +141,7 @@
          ("C-c n t" . org-roam-tag-add)
          ("C-c n y" . org-roam-dailies-capture-yesterday))
   :custom
-  (org-roam-directory (file-truename my-org-directory))
+  (org-roam-directory (file-truename (concat my-org-directory "/main")))
   :config
   (setq
    org-roam-dailies-capture-templates
@@ -151,7 +150,7 @@
                      ("%<%A %Y-%m-%d>")))))
   (setq org-roam-capture-templates
         '(("d" "default" plain "%?"
-           :target (file+head "main/%<%Y%m>-${slug}.org"
+           :target (file+head "%<%Y%m>-${slug}.org"
                               "#+title: ${title}\n")
            :unnarrowed t)))
   (org-roam-db-autosync-mode))

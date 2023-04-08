@@ -41,7 +41,7 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "MonoLisa Nasy-18"))))
+             `(default ((t (:font "MonoLisa Nasy-16"))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t font-spec :family "CMU Typewriter Text" :size 22 )))
              `(variable-pitch ((t font-spec :family "CMU Typewriter Text" :size 22 )))
@@ -70,8 +70,6 @@
    :url "https://github.com/quelpa/quelpa-use-package.git"))
 (require 'quelpa-use-package)
 
-(use-package emacsql
-  :quelpa (emacsql :fetcher github :repo "magit/emacsql"))
 
 (defcustom my-org-directory (expand-file-name "~/Org/")
   "Org file"

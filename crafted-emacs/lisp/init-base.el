@@ -19,7 +19,6 @@
   :hook ((prog-mode yaml-mode conf-mode) . display-line-numbers-mode)
   :init (setq display-line-numbers-width-start t))
 
-
 (scroll-bar-mode)
 
 (push  '(alpha-background . 95) default-frame-alist)
@@ -34,5 +33,10 @@
   :ensure t
   :init (global-wakatime-mode))
 
+;; optional if you want which-key integration
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
 
 (provide 'init-base)

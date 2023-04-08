@@ -28,10 +28,9 @@
   :ensure t)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
-;; optional if you want which-key integration
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode))
+
+(use-package yasnippet
+  :hook
+  (prog-mode . yas-minor-mode))
 
 (provide 'init-lsp)
