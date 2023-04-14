@@ -43,35 +43,13 @@
                               ,(face-foreground 'font-lock-string-face)
                               ,(face-foreground 'font-lock-constant-face)
                               ,(face-foreground 'font-lock-variable-name-face)))
-  :config
-  (defun lsp-ui-peek--peek-display (src1 src2)
-    (-let* ((win-width (frame-width))
-            (lsp-ui-peek-list-width (/ (frame-width) 2))
-            (string (-some--> (-zip-fill "" src1 src2)
-                      (--map (lsp-ui-peek--adjust win-width it) it)
-                      (-map-indexed 'lsp-ui-peek--make-line it)
-                      (-concat it (lsp-ui-peek--make-footer))))
-            )
-      (setq lsp-ui-peek--buffer (get-buffer-create " *lsp-peek--buffer*"))
-      (posframe-show lsp-ui-peek--buffer
-                     :string (mapconcat 'identity string "")
-                     :min-width (frame-width)
-                     :poshandler #'posframe-poshandler-frame-center)))
-
-  (defun lsp-ui-peek--peek-destroy ()
-    (when (bufferp lsp-ui-peek--buffer)
-      (posframe-delete lsp-ui-peek--buffer))
-    (setq lsp-ui-peek--buffer nil
-          lsp-ui-peek--last-xref nil)
-    (set-window-start (get-buffer-window) lsp-ui-peek--win-start))
-
-  (advice-add #'lsp-ui-peek--peek-new :override #'lsp-ui-peek--peek-display)
-  (advice-add #'lsp-ui-peek--peek-hide :override #'lsp-ui-peek--peek-destroy)
   )
-
 ;; optionally if you want to use debugger
 (use-package dap-mode
-  :ensure t)
+  :ensure t
+  :bind (:map lsp-mode-map
+              ("<f5>" . dap-debug))
+  )
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 

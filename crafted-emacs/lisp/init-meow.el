@@ -25,6 +25,7 @@
    '("b" . consult-buffer)
    '("B" . ibuffer)
    '("C" . org-capture)
+   '("f" . gptel-send)
    '("G" . magit)
    '("o" . ace-window)
    '("p" . projectile-command-map)

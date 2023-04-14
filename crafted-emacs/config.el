@@ -41,7 +41,7 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "MonoLisa Nasy-16"))))
+             `(default ((t (:font "MonoLisa Nasy-16" "CodeNewRoam Nerd Font Mono-16"))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t font-spec :family "CMU Typewriter Text" :size 22 )))
              `(variable-pitch ((t font-spec :family "CMU Typewriter Text" :size 22 )))
@@ -58,6 +58,9 @@
 (progn
   (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
   (load-theme 'doom-solarized-light t))       ; load the doom-palenight theme
+
+(setq use-package-always-ensure t
+      use-package-expand-minimally t)
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 ;; (setq crafted-load-custom-file nil)
@@ -81,6 +84,8 @@
 (require 'init-org)
 (require 'init-python)
 (require 'init-clojure)
+(require 'init-zig)
+(require 'init-markdown)
 
 ;; editor
 (require 'init-meow)
@@ -92,6 +97,7 @@
 (require 'init-completion)
 (require 'init-lsp)
 (require 'init-flycheck)
+(require 'init-copilot)
 
 ;; project
 (require 'init-dirvish)
