@@ -29,6 +29,16 @@
 ;; (pixel-scroll-precision-mode 1)
 ;; (setq pixel-scroll-precision-large-scroll-height 60
 ;; (pixel-scroll-precision-interpolation-factor 30.0)
+
+(use-package pangu-spacing
+
+  :init
+  (global-pangu-spacing-mode 1)
+  (add-hook 'org-mode-hook
+            #'(lambda ()
+                (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)))
+  )
+
 (use-package wakatime-mode
   :ensure t
   :init (global-wakatime-mode))

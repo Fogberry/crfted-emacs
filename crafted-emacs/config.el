@@ -21,7 +21,7 @@
 (require 'crafted-defaults)    ; Sensible default settings for Emacs
 (require 'crafted-updates)     ; Tools to upgrade Crafted Emacs
 (require 'crafted-completion)  ; selection framework based on `vertico`
-(require 'crafted-ui)          ; Better UI experience (modeline etc.)
+;; (require 'crafted-ui)          ; Better UI experience (modeline etc.)
 (require 'crafted-windows)     ; Window management configuration
 (require 'crafted-editing)     ; Whitspace trimming, auto parens etc.
                                         ;(require 'crafted-evil)        ; An `evil-mode` configuration
@@ -58,6 +58,8 @@
 (progn
   (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
   (load-theme 'doom-solarized-light t))       ; load the doom-palenight theme
+
+(customize-set-variable 'crafted-startup-inhibit-splash t)
 
 (setq use-package-always-ensure t
       use-package-expand-minimally t)
