@@ -3,6 +3,9 @@
   :init (meow-global-mode 1)
   :demand nil
   :config
+
+  (setq meow-use-clipboard t)
+
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-colemak)
   (meow-motion-overwrite-define-key
    '("n" . meow-next)
@@ -84,7 +87,6 @@
    '("q" . meow-quit)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
-   ;; '("s" . meow-insert)
    '("t" . meow-till)
    '("u" . undo-only)
    '("U" . undo-redo)
@@ -93,7 +95,7 @@
    '("W" . meow-next-symbol)
    '("x" . meow-delete)
    '("y" . meow-save)
-   '("Y" . consult-yank-pop)
+   '("Y" . meow-yank-pop)
    '("z" . meow-pop-selection)
    '("'" . repeat)
    '("<escape>" . ignore))

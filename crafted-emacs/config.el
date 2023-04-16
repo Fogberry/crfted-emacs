@@ -31,6 +31,9 @@
                                         ;(require 'crafted-screencast)  ; show current command and binding in modeline
 (require 'crafted-compile)     ; automatically compile some emacs lisp files
 
+(add-to-list 'load-path "~/crafted-emacs/crafted-emacs/lisp/")
+(require 'init-base)
+
 ;; Set the default face. The default face is the basis for most other
 ;; faces used in Emacs. A "face" is a configuration including font,
 ;; font size, foreground and background colors and other attributes.
@@ -54,20 +57,34 @@
 ;; modeline. Several themes are built-in to Emacs, by default,
 ;; Crafted Emacs uses the `deeper-blue' theme. Here is an example of
 ;; loading a different theme from the venerable Doom Emacs project.
-(crafted-package-install-package 'doom-themes)
-(progn
-  (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
-  (load-theme 'doom-solarized-light t))       ; load the doom-palenight theme
+;; (crafted-package-install-package 'doom-themes)
+;; (progn
+;;   (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
+;;   (load-theme 'modus-operandi-tinted t))       ; load the doom-palenight theme
+
+(use-package modus-themes
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs nil
+        modus-themes-bold-constructs t)
+
+  :config
+  (progn
+    (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
+    (load-theme 'modus-operandi-tinted t))       ; load the doom-palenight theme
+
+  )
 
 (customize-set-variable 'crafted-startup-inhibit-splash t)
 
-(setq use-package-always-ensure t
-      use-package-expand-minimally t)
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs t
+      modus-themes-variable-pitch-ui t
+      modus-themes-mixed-fonts t)
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 ;; (setq crafted-load-custom-file nil)
 
-(add-to-list 'load-path "~/crafted-emacs/crafted-emacs/lisp/")
 
 (quelpa
  '(quelpa-use-package
@@ -80,7 +97,6 @@
   "Org file"
   :type '(string))
 
-(require 'init-base)
 ;; lang
 (require 'init-web)
 (require 'init-org)

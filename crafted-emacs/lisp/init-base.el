@@ -14,15 +14,17 @@
       make-backup-files nil
       )
 
+(scroll-bar-mode)
+
+(push  '(alpha-background . 95) default-frame-alist)
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+
 (use-package display-line-numbers
   :ensure nil
   :hook ((prog-mode yaml-mode conf-mode) . display-line-numbers-mode)
   :init (setq display-line-numbers-width-start t))
 
-(scroll-bar-mode)
-
-(push  '(alpha-background . 95) default-frame-alist)
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 (setq mouse-yank-at-point nil)
 
@@ -43,7 +45,6 @@
   :ensure t
   :init (global-wakatime-mode))
 
-;; optional if you want which-key integration
 (use-package which-key
   :ensure t
   :config

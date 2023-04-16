@@ -33,7 +33,7 @@
   :bind (("<f2>" . dashboard-open)
          :map dashboard-mode-map
          )
-
+  ;; TODO add load-session
   :init
   (setq dashboard-banner-logo-title "Welcome to Emacs "
         dashboard-startup-banner 'official
