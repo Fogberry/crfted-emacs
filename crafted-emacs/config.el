@@ -65,13 +65,15 @@
 (use-package modus-themes
   :init
   ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-italic-constructs nil
-        modus-themes-bold-constructs t)
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs t
+        modus-themes-variable-pitch-ui t
+        modus-themes-mixed-fonts t)
 
   :config
   (progn
     (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
-    (load-theme 'modus-operandi-tinted t))       ; load the doom-palenight theme
+    (load-theme 'doom-solarized-light t))       ; load the doom-palenight theme
 
   )
 

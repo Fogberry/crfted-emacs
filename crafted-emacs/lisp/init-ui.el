@@ -1,10 +1,6 @@
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
-
-;; Mode-line
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
   :init
+  (doom-modeline-mode 1)
   (setq doom-modeline-height 1
         doom-modeline-window-width-limit 100
         doom-modeline-minor-modes nil))
@@ -51,5 +47,10 @@
                           (projects . 5)
                           (agenda . 5)))
   (dashboard-setup-startup-hook))
+
+(use-package sort-tab
+  :quelpa(sort-tab :fetcher github :repo "manateelazycat/sort-tab")
+  ;;  :init (sort-tab-mode t)
+  )
 
 (provide 'init-ui)

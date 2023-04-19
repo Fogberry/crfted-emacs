@@ -24,7 +24,6 @@
    '("8" . meow-digit-argument)
    '("9" . bury-buffer)
    '("0" . unbury-buffer)
-   '("a" . org-agenda)
    '("b" . consult-buffer)
    '("B" . ibuffer)
    '("C" . org-capture)

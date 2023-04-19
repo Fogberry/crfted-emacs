@@ -1,13 +1,13 @@
 (use-package org
   :ensure nil
-  :bind (("C-c a" . org-agenda)
-         ("C-c x" . org-capture))
+  :bind (("C-c A" . org-agenda)
+         ("C-c C" . org-capture))
   :config
   (setq org-modules nil                 ; Faster loading
         org-directory my-org-directory
         org-capture-templates
-        `(("a" "Appointment" entry (file+headline ,(concat org-directory "/task.org") "Appointment")
-           "* TODO %?\n%U\n" :empty-lines 1)
+        `(("a" "Appointment" entry (file+headline ,(concat org-directory "/journal.org") "Appointment")
+           "* TODO %?\n" :empty-lines 1)
           ("r" "Research" entry (file+headline ,(concat org-directory "/task.org") "Research")
            "* TODO %?\n%U\n" :empty-lines 1)
           ("t" "Task" entry (file+headline ,(concat org-directory "/task.org") "Task")

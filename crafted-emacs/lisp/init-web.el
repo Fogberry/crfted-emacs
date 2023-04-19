@@ -24,10 +24,10 @@
   :hook ((js2-mode . js2-imenu-extras-mode)
          (js2-mode . js2-highlight-unused-variables-mode))
   :config
-;  (with-eval-after-load 'flycheck
-;    (when (or (executable-find "eslint_d")
-;              (executable-find "eslint")
-;              (executable-find "jshint"))
+                                        ;  (with-eval-after-load 'flycheck
+                                        ;    (when (or (executable-find "eslint_d")
+                                        ;              (executable-find "eslint")
+                                        ;              (executable-find "jshint"))
                                         ;      (setq js2-mode-show-strict-warnings nil)))
   )
 
@@ -41,8 +41,7 @@
   :mode ("\\.ts[x]\\'" . typescript-mode))
 
 ;; Run Mocha or Jasmine tests
-(use-package mocha
-  :config (use-package mocha-snippets))
+(use-package mocha)
 
 ;; Major mode for editing web templates
 (use-package web-mode
@@ -58,5 +57,7 @@
 ;;   :hook ((js-mode js2-mode css-mode rjsx-mode web-mode) . prettier-mode)
 ;;   :init (setq prettier-pre-warm 'none))
 ;;
+
+(use-package yaml-mode)
 
 (provide 'init-web)
