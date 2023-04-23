@@ -6,16 +6,18 @@
   (setq org-modules nil                 ; Faster loading
         org-directory my-org-directory
         org-capture-templates
-        `(("a" "Appointment" entry (file+headline ,(concat org-directory "/journal.org") "Appointment")
-           "* TODO %?\n" :empty-lines 1)
-          ("r" "Research" entry (file+headline ,(concat org-directory "/task.org") "Research")
-           "* TODO %?\n%U\n" :empty-lines 1)
+        `(("a" "Appointment" entry (file+headline ,(concat org-directory "/task.org") "Appointment")
+           "* TODO %?\nSCHEDULED: %^t\n" :empty-lines 1)
+          ("r" "Research" entry (file ,(concat org-directory "/research.org"))
+           "* TODO %? %^C \n%U\n  " :empty-lines 1)
+          ("s" "School" entry (file+headline ,(concat org-directory "/school.org") "School")
+           "* TODO %?\nDEADLINE: %^t\n" :empty-lines 1)
           ("t" "Task" entry (file+headline ,(concat org-directory "/task.org") "Task")
-           "* TODO %?\n%U\n" :empty-lines 1)
+           "* TODO %?\nDEADLINE: %^t\n" :empty-lines 1)
           ("i" "Idea" entry (file ,(concat org-directory "/idea.org"))
            "* %?\n%t\n" :empty-lines 1)
           ("n" "Note" entry (file ,(concat org-directory "/note.org"))
-           "* %? :NOTE: \n%U\n" :empty-lines 1))
+           "* %? \n%U\n" :empty-lines 1))
         org-todo-keywords
         '((sequence "TODO(t)" "DOING(i)" "HANGUP(h)" "|" "DONE(d)" "CANCEL(c)")
           (sequence "⚑(T)" "🏴(I)" "❓(H)" "|" "✔(D)" "✘(C)"))

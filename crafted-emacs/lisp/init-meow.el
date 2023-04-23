@@ -4,8 +4,6 @@
   :demand nil
   :config
 
-  (setq meow-use-clipboard t)
-
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-colemak)
   (meow-motion-overwrite-define-key
    '("n" . meow-next)
