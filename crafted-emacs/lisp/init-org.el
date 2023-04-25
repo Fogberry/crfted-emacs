@@ -16,7 +16,7 @@
            "* TODO %?\nDEADLINE: %^t\n" :empty-lines 1)
           ("i" "Idea" entry (file ,(concat org-directory "/idea.org"))
            "* %?\n%t\n" :empty-lines 1)
-          ("n" "Note" entry (file ,(concat org-directory "/note.org"))
+          ("n" "Note" entry (file ,(concat org-directory "/notes.org"))
            "* %? \n%U\n" :empty-lines 1))
         org-todo-keywords
         '((sequence "TODO(t)" "DOING(i)" "HANGUP(h)" "|" "DONE(d)" "CANCEL(c)")

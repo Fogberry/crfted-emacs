@@ -31,26 +31,22 @@
          )
   ;; TODO add load-session
   :init
-  (setq dashboard-banner-logo-title "Welcome to Emacs "
-        dashboard-startup-banner 'official
-        dashboard-center-content t
-        dashboard-page-separator "\n\f\n"
-        dashboard-set-file-icons t
-        dashboard-set-heading-icons t
-        dashboard-set-footer t
-        dashboard-set-navigator t
-        dashboard-show-shortcuts nil
-        dashboard-set-init-info t
-        dashboard-projects-backend 'projectile
-        dashboard-items '((recents  . 10)
-                          (bookmarks . 5)
-                          (projects . 5)
-                          (agenda . 5)))
+  (setq
+   dashboard-startup-banner "~/crafted-emacs/crafted-emacs/xemacs_color.svg"
+   dashboard-center-content t
+   dashboard-page-separator "\n\f\n"
+   dashboard-set-file-icons t
+   dashboard-set-heading-icons t
+   dashboard-set-footer t
+   dashboard-set-navigator t
+   dashboard-show-shortcuts nil
+   dashboard-set-init-info t
+   dashboard-projects-backend 'projectile
+   dashboard-items '((recents  . 12)
+                     (bookmarks . 3)
+                     (projects . 5)
+                     (agenda . 5)))
   (dashboard-setup-startup-hook))
 
-(use-package sort-tab
-  :quelpa(sort-tab :fetcher github :repo "manateelazycat/sort-tab")
-  ;;  :init (sort-tab-mode t)
-  )
 
 (provide 'init-ui)

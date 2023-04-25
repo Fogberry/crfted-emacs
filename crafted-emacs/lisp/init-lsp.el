@@ -1,6 +1,4 @@
 (use-package lsp-mode
-  :ensure t
-  :pin melpa
   :custom
   (lsp-completion-provider :none)
   :init
@@ -28,7 +26,6 @@
 
 ;; optionally
 (use-package lsp-ui
-  :ensure t
   :bind(("C-c u" . lsp-ui-imenu)
         :map lsp-ui-mode-map
         ("s-<return>" . lsp-ui-sideline-apply-code-actions))
@@ -46,12 +43,18 @@
   )
 ;; optionally if you want to use debugger
 (use-package dap-mode
-  :ensure t
+
   :bind (:map lsp-mode-map
               ("<f5>" . dap-debug))
+  :config
+  ;; Enabling only some features
+  (setq dap-auto-configure-features '(sessions locals controls tooltip))
+  (require 'dap-node)
+  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+  (require 'dap-chrome)
+  (dap-chrome-setup)
   )
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
-
 
 ;;(use-package yasnippet
 ;;  :hook
